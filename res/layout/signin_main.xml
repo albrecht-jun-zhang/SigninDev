@@ -1,0 +1,139 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SigninMainActivity" >
+
+     <TextView
+         android:id="@+id/textViewTitle"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         android:layout_centerHorizontal="false"
+         android:layout_margin="@dimen/activity_margin"
+         android:text="@string/project_name"
+         android:textColor="@color/holo_blue"
+         android:textSize="40sp" 
+    		 />
+     
+     <View 
+         android:id="@+id/topLine"
+         android:layout_width="match_parent"
+         android:layout_height="1dp"
+         android:background="@color/holo_blue"
+         android:layout_below="@+id/textViewTitle" />
+    
+     
+     
+    <RelativeLayout
+        android:layout_width="@dimen/main_signin_name_width"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center" >
+     
+		    <EditText
+		        android:id="@+id/editTextFirstName"
+		        android:layout_width="@dimen/main_signin_name_width"
+		        android:layout_height="wrap_content"
+		        android:layout_centerHorizontal="true"        
+		        android:layout_margin="@dimen/activity_margin"
+		        android:ems="10"
+		        android:hint="@string/main_signin_firstname_hint"
+		        android:inputType="textPersonName" >
+		
+		        <!-- requestFocus /-->
+		    </EditText>
+		
+		    <EditText
+		        android:id="@+id/editTextLastName"
+		        android:layout_width="@dimen/main_signin_name_width"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@+id/editTextFirstName"
+		        android:layout_centerHorizontal="true"
+		        android:layout_margin="@dimen/activity_margin"
+		        android:ems="10"
+		        android:hint="@string/main_signin_lastname_hint"
+		        android:inputType="textPersonName" />
+		    
+		    <RelativeLayout
+		        android:id="@+id/rlSignInUp"
+		        android:layout_width="@dimen/main_signin_name_width"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@+id/editTextLastName"
+		        android:layout_centerHorizontal="true"
+		        android:gravity="center" >
+		
+			    <Button
+			        android:id="@+id/btnSignIn"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"  
+			        android:layout_alignParentLeft="true"
+			        android:layout_margin="@dimen/activity_margin"
+			        android:minHeight="48dip"
+			        android:minWidth="64dip"
+			        android:width="@dimen/main_signin_signinup_width"
+			        android:text="@string/main_signin"
+			        android:textColor="@color/white"/>	    
+			    <Button
+			        android:id="@+id/btnSignUp"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentRight="true"       
+			        android:layout_margin="@dimen/activity_margin"
+			        android:minHeight="48dip"
+			        android:minWidth="64dip"
+			        android:width="@dimen/main_signin_signinup_width"
+			        android:text="@string/main_signup"
+			        android:textColor="@color/white"/>
+		    </RelativeLayout>
+		    
+		    <RelativeLayout
+		        android:id="@+id/rlAuth"
+		        android:layout_width="@dimen/main_signin_name_width"
+		        android:layout_height="wrap_content"
+		        android:layout_centerHorizontal="true"
+		        android:layout_below="@+id/rlSignInUp"
+		        android:gravity="center" >
+		
+		        <ImageButton
+		            android:id="@+id/imgBtnfb"
+		            android:contentDescription="@string/fbAuth"
+		            android:layout_width="@dimen/main_signin_auth_width"
+		            android:layout_height="@dimen/main_signin_auth_width"
+		            android:layout_margin="@dimen/activity_margin"
+		            android:layout_alignParentLeft="true"
+		            android:background="@drawable/fb_auth_selector" />
+		        
+		        <ImageButton
+		            android:id="@+id/imgBtnTwitter"
+		            android:layout_width="@dimen/main_signin_auth_width"
+		            android:layout_height="@dimen/main_signin_auth_width"
+		            android:layout_margin="@dimen/activity_margin"
+		            android:layout_toLeftOf="@+id/imgBtnGoogle"
+		            android:layout_toRightOf="@+id/imgBtnfb"
+		            android:background="@drawable/twitter_auth_selector"
+		            android:contentDescription="@string/twitterAuth" />
+		        
+		        <ImageButton
+		            android:id="@+id/imgBtnGoogle"
+		            android:contentDescription="@string/googleAuth"
+		            android:layout_width="@dimen/main_signin_auth_width"
+		            android:layout_height="@dimen/main_signin_auth_width"
+		            android:layout_margin="@dimen/activity_margin"
+		            android:layout_alignParentRight="true"
+		            android:background="@drawable/google_auth_selector" />
+		        
+		        <!-- >com.google.android.gms.common.SignInButton
+		            android:id="@+id/imgBtnGoogle"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_margin="@dimen/activity_margin" /-->
+			    
+		    </RelativeLayout>
+    
+    </RelativeLayout>
+
+</RelativeLayout>
