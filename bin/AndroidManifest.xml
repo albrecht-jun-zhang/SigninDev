@@ -34,6 +34,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- 1. meta-data is used to use the applicationid registered in facebook sdk
+             2. com.facebook.LoginActivity must be defined(no need to create a .java file) in manifest to use facebook login UI -->
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
+        <activity android:name="com.facebook.LoginActivity"></activity>
+        
+        <activity android:name=".FBActivity">
+        </activity>
         <activity android:name=".GPlusActivity">
         </activity>
     </application>

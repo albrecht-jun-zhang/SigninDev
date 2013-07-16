@@ -1,0 +1,22 @@
+SignIn v0.10 - project outline
+Functions to be accomplished: 
+1. User signs in with his first and lastname and company name. 
+2. User visits a person by typing in the first and lastname.
+3. First time a user must choose a question and give a relative answer to make him unique in our system/database
+Features:
+1 Register google account to SignIn App                   - 20 hours
+
+2 Login with google and facebook accounts(Authentication) - 50 hours 
+x2.1 google+ 
+2.2 facebook
+2.3 twitter
+
+3 Build restful webservice(Database)                      - 100 hours
+3.1 tomcat webservice
+
+
+4 Login with registered username and password             - 20 hours
+5 Admin Set up page                                       - 30 hours
+6 Visit page                                              - 40 hours
+7 Email Notification                                      - 40 hours
+8 V0.10 test and debug								      - 80 hours

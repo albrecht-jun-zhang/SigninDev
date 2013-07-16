@@ -24,8 +24,12 @@ public class SigninMainActivity extends Activity implements View.OnClickListener
 		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);				
 //		retrieveName();
 		
+		// Facebook btn is clicked
+		findViewById(R.id.imgBtnfb).setOnClickListener(this);
+		
 		// Google+ btn is clicked
 		findViewById(R.id.imgBtnGoogle).setOnClickListener(this);
+		
 	}
 
 	@Override
@@ -77,10 +81,17 @@ public class SigninMainActivity extends Activity implements View.OnClickListener
 	public void onClick(View view) {
 		switch(view.getId()) {
 			case R.id.imgBtnGoogle:
-			Intent intent;
-			intent = new Intent(this, GPlusActivity.class);
-			startActivity(intent);
-			break;
+				Intent gPlusIntent;
+				gPlusIntent = new Intent(this, GPlusActivity.class);
+				startActivity(gPlusIntent);
+				break;
+			case R.id.imgBtnfb:
+				Intent fbIntent;
+				fbIntent = new Intent(this, FBActivity.class);
+				startActivity(fbIntent);
+				break;
+			default:
+				throw new IllegalArgumentException("The provided view id " + view.getId() + " is not defined.");
 		}		
 	}
 

@@ -28,6 +28,7 @@ public class GPlusActivity extends Activity implements ConnectionCallbacks,
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.gplus);
 		mPlusClient = new PlusClient.Builder(this, this, this)
 		        .setVisibleActivities("http://schemas.google.com/AddActivity", "http://schemas.google.com/BuyActivity")
 		        .build();
@@ -60,15 +61,52 @@ public class GPlusActivity extends Activity implements ConnectionCallbacks,
 		super.onStart();
 		mPlusClient.connect();
 		
-		startConnecting();
+		Thread thread = new Thread(){				
+			@Override
+			public void run() {
+				try {
+					// Wait until 
+					sleep(1000);
+				} catch (InterruptedException e) {					
+					e.printStackTrace();
+				}
+				startConnecting();
+			}						
+		};
+		thread.start();
 	}
 	
 	@Override
 	protected void onStop() {
 		super.onStop();
 		mPlusClient.disconnect();
+	}	
+	
+	@Override
+	protected void onActivityResult(int requestCode, int responseCode, Intent intent) {
+		if (requestCode == REQUEST_CODE_RESOLVE_ERR && responseCode == RESULT_OK) {
+		    mConnectionResult = null;
+		    mPlusClient.connect();
+		}
 	}
 	
+	/**
+	 * After mPlusClient.connect(); is called, if the client is successfully 
+	 * connected to GooglePlayServices, this function is called, otherwise 
+	 * function {@link #onConnectionFailed(ConnectionResult)} is called
+	 */
+	@Override
+	public void onConnected(Bundle connectionHint) {
+		String accountName = mPlusClient.getAccountName();
+		Toast.makeText(this, accountName + " is connected.", Toast.LENGTH_LONG).show();
+		mConnectionProgressDialog.dismiss();
+	}
+	
+	/**
+	 * After mPlusClient.connect(); is called, if the client isnot successfully 
+	 * connected to GooglePlayServices, this function is called, otherwise
+	 * function {@link #onConnected(Bundle)} is called
+	 */
 	@Override
 	public void onConnectionFailed(ConnectionResult result) {
 		if (mConnectionProgressDialog.isShowing()) {
@@ -85,21 +123,6 @@ public class GPlusActivity extends Activity implements ConnectionCallbacks,
 		}
 		// Save the result and resolve the connection failure upon a user click.
 		mConnectionResult = result;
-	}
-	
-	@Override
-	protected void onActivityResult(int requestCode, int responseCode, Intent intent) {
-		if (requestCode == REQUEST_CODE_RESOLVE_ERR && responseCode == RESULT_OK) {
-		    mConnectionResult = null;
-		    mPlusClient.connect();
-		}
-	}
-	
-	@Override
-	public void onConnected(Bundle connectionHint) {
-		String accountName = mPlusClient.getAccountName();
-		Toast.makeText(this, accountName + " is connected.", Toast.LENGTH_LONG).show();
-		mConnectionProgressDialog.dismiss();
 	}
 	
 	@Override

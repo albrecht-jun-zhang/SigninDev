@@ -13,5 +13,8 @@
     <string name="fbAuth">Face Book Authentication</string>
     <string name="twitterAuth">Twitter Authentication</string>
     <string name="googleAuth">Google Authentication</string>
+    
+    <!-- Facebook -->
+    <string name="app_id">368015039992452</string>
 
 </resources>
